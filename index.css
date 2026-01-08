@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =====================
+   BASE / DESKTOP
+===================== */
+
+body {
+    background-color: rgba(137, 43, 226, 0.322);
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dark mode button */
+.darkModeBtn {
+    margin-bottom: 16px;
+    font-size: 18px;
+    height: 38px;
+    width: 70px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+}
+
+/* Calculator card */
+.content {
+    width: min(92vw, 400px);
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30),
+                0 15px 12px rgba(0,0,0,0.22);
+}
+
+body.dark .content {
+    background-color: black;
+}
+
+/* =====================
+   DISPLAY AREA
+===================== */
+
+.calculationArea {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.display {
+    font-size: 45px;
+    color: rgba(161, 56, 56, 0.644);
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+body.dark .display {
+    color: white;
+}
+
+.cursor {
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+
+.answer {
+    font-size: 25px;
+    color: grey;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.deleteIcon {
+    font-size: 22px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+body.dark .deleteIcon {
+    color: white;
+}
+
+/* =====================
+   BUTTON GRID
+===================== */
+
+.numbers {
+    padding: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.box {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.267);
+    transition: transform 0.12s ease;
+}
+
+.box:active {
+    transform: scale(0.92);
+}
+
+body.dark .box {
+    color: white;
+}
+
+.box .c {
+    color: red;
+}
+
+.bracket,
+.divide,
+.prod,
+.sub,
+.add {
+    color: blue;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.percentage {
+    color: blue;
+}
+
+.equalBox {
+    background-color: #a287ca;
+}
+
+/* =====================
+   TABLET (481px–900px)
+===================== */
+
+@media (min-width: 481px) and (max-width: 900px) {
+
+    .darkModeBtn {
+        margin-bottom: 14px;
+        font-size: 16px;
+        height: 34px;
+        width: 64px;
+    }
+
+    .content {
+        max-width: 380px;
+    }
+
+    .display {
+        font-size: 38px;
+    }
+
+    .answer {
+        font-size: 22px;
+    }
+
+    .box {
+        font-size: 24px;
+    }
+}
+
+/* =====================
+   MOBILE (≤480px)
+===================== */
+
+@media (max-width: 480px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .container {
+        min-height: 100vh;
+        justify-content: center;
+    }
+
+    /* Dark button – minimal */
+    .darkModeBtn {
+        margin-bottom: 6px;
+        height: 26px;
+        width: 54px;
+        font-size: 12px;
+        border-radius: 13px;
+    }
+
+    /* Card perfectly centered & smaller */
+    .content {
+        width: 90vw;
+        max-width: 320px;
+        border-radius: 22px;
+    }
+
+    .calculationArea {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .display {
+        font-size: 26px;
+    }
+
+    .answer {
+        font-size: 16px;
+    }
+
+    .numbers {
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .box {
+        font-size: 20px;
+    }
+
+    .bracket,
+    .divide,
+    .prod,
+    .sub,
+    .add {
+        font-size: 22px;
+    }
+}
